@@ -9,7 +9,7 @@ function maxOfTwoNumbers(a, b) {
   }
 }
 
-console.log(maxOfTwoNumbers(1,2))
+console.log(`#1: Find the maximum: Answer ${maxOfTwoNumbers(1,2)}`)
 
 
 // Iteration #2: Find longest word
@@ -20,19 +20,19 @@ function findLongestWord(word) {
     return null;
   } 
 
-  let longWord = '';
+  let longestWord = '';
  
-  for (i=0;i<word.length;i++) {
+  for (let i=0;i<word.length;i++) {
     let wordToCompare = word[i];
     
-    if (wordToCompare.length > longWord.length) {
-      longWord = wordToCompare;
+    if (wordToCompare.length > longestWord.length) {
+      longestWord = wordToCompare;
     } 
   }
-  return longWord;
+  return longestWord;
 }
 
-console.log(findLongestWord(words))
+console.log(`#2: Find longest word: Answer ${findLongestWord(words)}`)
 
 
 // Iteration #3: Calculate the sum
@@ -41,17 +41,17 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers(num) {
   let sumAllNumbers = 0;
 
-  for (i=0; i<num.length; i++) {
+  for (let i=0; i<num.length; i++) {
     sumAllNumbers += num[i];
   }
-  return sumAllNumbers
+  return sumAllNumbers;
 }
 
-console.log(`total number ${sumNumbers(numbers)}`)
+console.log(`#3: Calculate the sum: Answer Total number ${sumNumbers(numbers)}`)
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(totalNum) {}
 
 
 
@@ -60,23 +60,43 @@ function sum() {}
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numb) {
-  
-  let totalSum = sumNumbers(numb)
-  return totalSum/2
+  if (numb.length === 0) {
+    return null;
+  }
+  let totalSum = sumNumbers(numb);
+  //console.log(totalSum)
+  return totalSum / (numb.length);
 }
 
-console.log(averageNumbers(numbersAvg))
+console.log(`#4: Array of numbers: Answer ${averageNumbers(numbersAvg)}`)
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordAvrNum) {
+  if (wordAvrNum.length === 0) {
+    return null;
+  }
+
+  let amounthOfLetters = 0;
+
+  for (i=0;i<wordAvrNum.length;i++) { 
+   // let amounthOfWords = wordAvrNum[i].length //<==>[i].length ==> the given ([i])index's .length (in numbers)
+   amounthOfLetters += wordAvrNum[i].length;
+  }
+  return amounthOfLetters/wordAvrNum.length;
+ }
+
+console.log(`#4 Level 2: Calculate the avrage of an array of numbers: Answer ${averageWordLength(wordsArr)}`)
+
 
 // Bonus - Iteration #4.1
 function avg() {}
 
 // Iteration #5: Unique arrays
+// 
+// to understand better - indexOf() and includes() are similer methods - in what sense...? 
 const wordsUnique = [
   'crab',
   'poison',
@@ -91,16 +111,43 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordComparesmnt) {
+  if (wordComparesmnt.length === 0) {
+    return null;
+  }
+    let uniqueWords = [];
+    let repetedWords = [];
+
+  for(let i=0;i<wordComparesmnt.length;i++) {
+    if(uniqueWords.includes(wordComparesmnt[i])) { // if [include = true] it's in the uniq... box
+      repetedWords.push(wordComparesmnt[i]);
+    } else {
+      uniqueWords.push(wordComparesmnt[i]);
+    }
+  }
+  return uniqueWords;
+}
+
+console.log(`#5: Check and exclude the same existing words from a given array: Answer ${uniquifyArray(wordsUnique)}`)
+
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arrArgument, wordToSearch) {
+  if(arrArgument.length === 0) {
+    return null;
+  }
+  if(arrArgument.includes(wordToSearch)) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
-
+console.log(`#6: Search if a word exist in an array of words ('starting'): Answer ${doesWordExist(wordsFind, 'starting')}`)
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -117,8 +164,17 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arrCountWords, wordArg) {
+  let countWordAppearance = 0;
+  for (i=0;i<arrCountWords.length;i++) {
+    if (arrCountWords[i] === wordArg) {
+      countWordAppearance++
+    }
+  }
+  return countWordAppearance;
+}
 
+console.log(`#7: Count how many times a word appears in an array ('matter'): Answer ${howManyTimes(wordsCount, 'matter')}`)
 
 
 // Iteration #8: Bonus
