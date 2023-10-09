@@ -51,9 +51,37 @@ console.log(`#3: Calculate the sum: Answer Total number ${sumNumbers(numbers)}`)
 
 
 // Iteration #3.1 Bonus:
-function sum(totalNum) {}
 
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10,[1,2,3]];
 
+// should return: 57
+
+function sum(totalNum) {
+  if (totalNum.length === 0) {
+    return 0;
+  } 
+  // inspired by Europe ==> https://www.youtube.com/watch?v=9jK-NcRmVcw 
+ 
+  let theFinalCountDown = 0;
+  let errorMessage = "The array contains another array. Please change the conditons."
+
+  for (tuduDiDU = 0; tuduDiDU<totalNum.length; tuduDiDU++) {
+    if (typeof totalNum[tuduDiDU] === "boolean") {
+      theFinalCountDown += 1; // GO 
+    } else if (typeof totalNum[tuduDiDU] === "string") {
+      theFinalCountDown += totalNum[tuduDiDU].length; // we're living together...
+    } else if (typeof totalNum[tuduDiDU] === "number") {
+      theFinalCountDown += totalNum[tuduDiDU]; // and maybe we'll come back...
+    } else if (typeof totalNum[tuduDiDU] === "object" || typeof totalNum[tuduDiDU] === "array" ){
+      return errorMessage; 
+    }
+  }
+
+  return theFinalCountDown
+
+}
+
+console.log(`Bonus #3.1: should return the sum of mixed array (Boolean = 1; else its numerical value.): answer ${sum(mixedArr)}`)
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -93,6 +121,10 @@ console.log(`#4 Level 2: Calculate the avrage of an array of numbers: Answer ${a
 
 // Bonus - Iteration #4.1
 function avg() {}
+
+
+
+
 
 // Iteration #5: Unique arrays
 // 
