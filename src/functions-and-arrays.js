@@ -52,7 +52,7 @@ console.log(`#3: Calculate the sum: Answer Total number ${sumNumbers(numbers)}`)
 
 // Iteration #3.1 Bonus:
 
-const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10,[1,2,3]];
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10,];
 
 // should return: 57
 
@@ -120,7 +120,17 @@ console.log(`#4 Level 2: Calculate the avrage of an array of numbers: Answer ${a
 
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arR) {
+
+  if(arR.length === 0) {
+    return null;
+  }
+let averageNumOfArr = sum(arR) / arR.length
+ 
+  return averageNumOfArr
+}
+
+console.log(`Bonus #4.1: The avrage of  the array is: Answer ${avg(mixedArr)}`)
 
 
 
